@@ -50,10 +50,11 @@ class Bernoulli:
       Arguments:
       input - Input numpy array for which PMF is required
       """
-    #using lambda expression to write the PMF
     self.expectation(input)
+    #Write function to compute PMF
     def pmf_estimation(input_element):
       return self.expectation_**input_element * (1-self.expectation_)**(1 - input_element)
+      #Apply pmf function to each element of the array 
     self.pmf_ = np.apply_along_axis(pmf_estimation, 0, input)
 
   def var(self, input):
